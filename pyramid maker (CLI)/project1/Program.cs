@@ -24,7 +24,7 @@ namespace project1
 
             int pyramid_height;
 
-            Console.WriteLine("\nWant to see a pyramid? \n Enter a random number above 10 ->");
+            Console.WriteLine("\n              Want to see a pyramid? \n Enter a random (int type) height, best if you enter above 10..");
             pyramid_height = Convert.ToInt32(Console.ReadLine());
 
 
@@ -54,15 +54,16 @@ namespace project1
 
         public static void Draw_pyramid(int height)
         {
+            int op = height + 2;
 
-            for (int j = 1; j <= height; j++)
+            for (int j = 1; j <= height + 1; j++)
             {
-                height -= 1;
-                string result = string.Join(" ", new string[height]);
-                result += string.Join("*", new string[j]);
+                op -= 1;
+                string result = string.Join(" ", new string[op] );
+                result += string.Join("*", new string[j] );
 
-                result += string.Join("*", new string[j - 1]);
-                Console.WriteLine(result);
+                result += string.Join("*", new string[j - 1] );
+                Console.WriteLine(result) ;
                    
             }
             

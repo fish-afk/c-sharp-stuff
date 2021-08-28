@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\SIHAAB\\Desktop\\Visual studio stuff\\project1\\project1\\project1.csproj": {}
+    "C:\\Users\\SIHAAB\\Desktop\\Visual studio stuff\\pyramid maker (CLI)\\project1\\project1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\SIHAAB\\Desktop\\Visual studio stuff\\project1\\project1\\project1.csproj": {
+    "C:\\Users\\SIHAAB\\Desktop\\Visual studio stuff\\pyramid maker (CLI)\\project1\\project1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\SIHAAB\\Desktop\\Visual studio stuff\\project1\\project1\\project1.csproj",
+        "projectUniqueName": "C:\\Users\\SIHAAB\\Desktop\\Visual studio stuff\\pyramid maker (CLI)\\project1\\project1.csproj",
         "projectName": "project1",
-        "projectPath": "C:\\Users\\SIHAAB\\Desktop\\Visual studio stuff\\project1\\project1\\project1.csproj",
+        "projectPath": "C:\\Users\\SIHAAB\\Desktop\\Visual studio stuff\\pyramid maker (CLI)\\project1\\project1.csproj",
         "packagesPath": "C:\\Users\\SIHAAB\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\SIHAAB\\Desktop\\Visual studio stuff\\project1\\project1\\obj\\",
+        "outputPath": "C:\\Users\\SIHAAB\\Desktop\\Visual studio stuff\\pyramid maker (CLI)\\project1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\SIHAAB\\AppData\\Roaming\\NuGet\\NuGet.Config",
