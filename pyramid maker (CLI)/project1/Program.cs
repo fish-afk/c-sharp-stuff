@@ -8,15 +8,25 @@ namespace project1
         {
             string input;
             string age;
-
+            
 
             Console.WriteLine("Whats your name?");
             input = Console.ReadLine();
 
+            while (input.Length <= 1)
+            {
+                Console.WriteLine("Whats your name?");
+                input = Console.ReadLine();
+            }
+
             Console.WriteLine("\nWhats your age/");
             age = Console.ReadLine();
 
-
+            while (age == "")
+            {
+                Console.WriteLine("\nWhats your age/");
+                age = Console.ReadLine();
+            }
 
             Console.WriteLine("\n Hey " + input);
             Checker(Convert.ToInt32(age));
