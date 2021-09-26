@@ -1,4 +1,12 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading;
+
 
 namespace project1
 {
@@ -9,6 +17,8 @@ namespace project1
             string input;
             int age;
             bool Play = true;
+            Random random1 = new Random();
+            Random random2 = new Random();
 
             try
             {
@@ -27,7 +37,7 @@ namespace project1
                         break;
                     }
 
-                    Console.WriteLine("Whats your name?"); // all this part is not really necessary, but just added it coz of aesthetics..
+                    Console.WriteLine("\nWhats your name?\n"); // all this part is not really necessary, but just added it coz of aesthetics..
                     input = Console.ReadLine();
 
                     Type our_type = input.GetType();
@@ -35,7 +45,7 @@ namespace project1
                     while (input.Length <= 1 || our_type != typeof(string))      // i know , yeah a really funky program.. xD
 
                     {
-                        Console.WriteLine("Whats your name?");
+                        Console.WriteLine("\nWhats your name?\n");
                         input = Console.ReadLine();
                     }
 
@@ -56,37 +66,41 @@ namespace project1
 
                     int pyramid_height;
 
-                    Console.WriteLine("\n              Want to see a pyramid? \n Enter a random (int type) height, best if you enter above 10..");
+                    Console.WriteLine("\n              Want to see a pyramid?\n \n Enter a random (int type) height, best if you enter above 10..");
 
                     pyramid_height = Convert.ToInt32(Console.ReadLine());
 
 
                     Draw_pyramid(pyramid_height); // calling the pyramid function here to draw the pyramid ........
 
-                    Console.WriteLine("\n              Want to see a rectangle? \n Enter rows");
+                    Console.WriteLine("\n              Want to see a rectangle? \n Enter rows:");
                     int rows = Convert.ToInt32(Console.ReadLine());
 
-                    Console.WriteLine("enter columns");
+                    Console.WriteLine("\nEnter columns:");
                     int columns = Convert.ToInt32(Console.ReadLine());
 
-                    Console.WriteLine("enter symbol");
+                    Console.WriteLine("\nEnter symbol:");
                     char symbol = Convert.ToChar(Console.ReadLine());
 
                     Draw_rectangle(columns, rows, symbol);
+
+                    calculations CALC = new calculations(random1.Next(0, 100), random2.Next(0, 150));
+                    CALC.input_taker();
                     Greeting();
 
                 } while (Play == true);
 
-                Console.WriteLine("\nPress any key to close window");
+                
+                Console.WriteLine("\nPress any key to close window:");
                 Console.ReadLine();
             }
-            catch   // yeah yeah im too lazy to catch all errors so yeah , ill just put all exceptions here and say something went wrong
+            catch (Exception ec)  // yeah yeah im too lazy to catch all errors so yeah , ill just put all exceptions here and say something went wrong
             {
-                Console.WriteLine("Something went wrong, Try to re run the program...");
+                Console.WriteLine($"\nSomething went wrong, Try to re run the program... \n {ec}");
             }
         }
 
-        public static void Greeting()
+        static void Greeting()
         {
             Console.WriteLine("\n There we go...");
         }
@@ -133,4 +147,52 @@ namespace project1
             }
         }
     }
+    class calculations
+    {
+
+        public int first_no;
+        public int second_no;
+
+        public calculations(int first_no, int second_no)
+        {
+            this.first_no = first_no;
+            this.second_no = second_no;
+        }
+
+        public void input_taker()
+        {
+            int input;
+
+            Console.WriteLine($"\n\nwhat is {first_no} + { second_no} ?");
+            input = Convert.ToInt32(Console.ReadLine());
+            add_check(input);
+        }
+
+        public void add_check(int input)
+        {
+            int ans;
+            
+
+            try
+            {
+                ans = first_no + second_no;
+
+                if (input == ans)
+                {
+                    Console.WriteLine("\n Correct !");
+                }
+                else
+                {
+                    Console.WriteLine($"\n wrong, the answer was {ans} !");
+                }
+
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine($"\nThere was an error\n {exception}");
+            }
+        }
+
+    }
 }
+
