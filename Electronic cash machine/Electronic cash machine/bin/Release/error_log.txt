@@ -1,0 +1,51 @@
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Electronic_cash_machine.Form1.button17_MouseDown(Object sender, MouseEventArgs e) in C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\Form1.cs:line 481
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Electronic_cash_machine.Form1.button17_MouseDown(Object sender, MouseEventArgs e) in C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\Form1.cs:line 481
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Electronic_cash_machine.Form1.button17_MouseDown(Object sender, MouseEventArgs e) in C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\Form1.cs:line 481
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Electronic_cash_machine.Form1.button17_MouseDown(Object sender, MouseEventArgs e) in C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\Form1.cs:line 481
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Electronic_cash_machine.Form1.button17_MouseDown(Object sender, MouseEventArgs e) in C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\Form1.cs:line 481
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Electronic_cash_machine.Form1.button17_MouseDown(Object sender, MouseEventArgs e) in C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\Form1.cs:line 481
+System.ArgumentOutOfRangeException: StartIndex cannot be less than zero.
+Parameter name: startIndex
+   at System.String.Remove(Int32 startIndex)
+   at Electronic_cash_machine.Form1.button17_MouseDown(Object sender, MouseEventArgs e) in C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\Form1.cs:line 481
+System.ArgumentOutOfRangeException: StartIndex cannot be less than zero.
+Parameter name: startIndex
+   at System.String.Remove(Int32 startIndex)
+   at Electronic_cash_machine.Form1.button17_MouseDown(Object sender, MouseEventArgs e) in C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\Form1.cs:line 481
+System.ArgumentOutOfRangeException: StartIndex cannot be less than zero.
+Parameter name: startIndex
+   at System.String.Remove(Int32 startIndex)
+   at Electronic_cash_machine.Form1.button17_MouseDown(Object sender, MouseEventArgs e) in C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\Form1.cs:line 481
+System.ArgumentOutOfRangeException: StartIndex cannot be less than zero.
+Parameter name: startIndex
+   at System.String.Remove(Int32 startIndex)
+   at Electronic_cash_machine.Form1.button17_MouseDown(Object sender, MouseEventArgs e) in C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\Form1.cs:line 481
+System.ArgumentOutOfRangeException: StartIndex cannot be less than zero.
+Parameter name: startIndex
+   at System.String.Remove(Int32 startIndex)
+   at Electronic_cash_machine.Form1.button17_MouseDown(Object sender, MouseEventArgs e) in C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\Form1.cs:line 481
+System.ArgumentOutOfRangeException: StartIndex cannot be less than zero.
+Parameter name: startIndex
+   at System.String.Remove(Int32 startIndex)
+   at Electronic_cash_machine.Form1.button17_MouseDown(Object sender, MouseEventArgs e) in C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\Form1.cs:line 481
+System.ArgumentOutOfRangeException: StartIndex cannot be less than zero.
+Parameter name: startIndex
+   at System.String.Remove(Int32 startIndex)
+   at Electronic_cash_machine.Form1.button17_MouseDown(Object sender, MouseEventArgs e) in C:\Users\SIHAAB\Desktop\VisuaSystem.ArgumentOutOfRangeException: StartIndex cannot be less than zero.
+Parameter name: startIndex
+   at System.String.Remove(Int32 startIndex)
+   at Electronic_cash_machine.Form1.button17_MouseDown(Object sender, MouseEventArgs e) in C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\Form1.cs:line 481
+System.ArgumentOutOfRangeException: StartIndex cannot be less than zero.
+Parameter name: startIndex
+   at System.String.Remove(Int32 startIndex)
+   at Electronic_cash_machine.Form1.button17_MouseDown(Object sender, MouseEventArgs e) in C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\Form1.cs:line 481
+System.ArgumentOutOfRangeException: StartIndex cannot be less than zero.
+Parameter name: startIndex
+   at System.String.Remove(Int32 startIndex)
+   at Electronic_cash_machine.Form1.button17_MouseDown(Object sender, MouseEventArgs e) in C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash m

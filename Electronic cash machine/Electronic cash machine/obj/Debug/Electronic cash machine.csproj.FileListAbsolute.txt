@@ -1,0 +1,25 @@
+C:\Users\SIHAAB\source\repos\Electronic cash machine\Electronic cash machine\bin\Debug\Electronic cash machine.exe.config
+C:\Users\SIHAAB\source\repos\Electronic cash machine\Electronic cash machine\bin\Debug\Electronic cash machine.exe
+C:\Users\SIHAAB\source\repos\Electronic cash machine\Electronic cash machine\bin\Debug\Electronic cash machine.pdb
+C:\Users\SIHAAB\source\repos\Electronic cash machine\Electronic cash machine\obj\Debug\Electronic cash machine.csproj.AssemblyReference.cache
+C:\Users\SIHAAB\source\repos\Electronic cash machine\Electronic cash machine\obj\Debug\Electronic_cash_machine.Form1.resources
+C:\Users\SIHAAB\source\repos\Electronic cash machine\Electronic cash machine\obj\Debug\Electronic_cash_machine.Properties.Resources.resources
+C:\Users\SIHAAB\source\repos\Electronic cash machine\Electronic cash machine\obj\Debug\Electronic cash machine.csproj.GenerateResource.cache
+C:\Users\SIHAAB\source\repos\Electronic cash machine\Electronic cash machine\obj\Debug\Electronic cash machine.csproj.CoreCompileInputs.cache
+C:\Users\SIHAAB\source\repos\Electronic cash machine\Electronic cash machine\obj\Debug\Electronic cash machine.exe
+C:\Users\SIHAAB\source\repos\Electronic cash machine\Electronic cash machine\obj\Debug\Electronic cash machine.pdb
+C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\obj\Debug\Electronic_cash_machine.Form1.resources
+C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\obj\Debug\Electronic_cash_machine.Properties.Resources.resources
+C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\obj\Debug\Electronic cash machine.csproj.GenerateResource.cache
+C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\obj\Debug\Electronic cash machine.csproj.CoreCompileInputs.cache
+C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\obj\Debug\Electronic cash machine.exe
+C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\obj\Debug\Electronic cash machine.pdb
+C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\bin\Debug\Electronic cash machine.exe.config
+C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\bin\Debug\Electronic cash machine.exe
+C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\bin\Debug\Electronic cash machine.pdb
+C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\bin\Debug\Electronic cash machine.exe.manifest
+C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\bin\Debug\Electronic cash machine.application
+C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\obj\Debug\Electronic cash machine.exe.manifest
+C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\obj\Debug\Electronic cash machine.application
+C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\obj\Debug\Electronic cash machine.csproj.AssemblyReference.cache
+C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\obj\Debug\Electronic_cash_machine.loading_form.resources

@@ -1,0 +1,14 @@
+C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\bin\Release\Electronic cash machine.exe.config
+C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\bin\Release\Electronic cash machine.exe
+C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\bin\Release\Electronic cash machine.pdb
+C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\obj\Release\Electronic cash machine.csproj.AssemblyReference.cache
+C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\obj\Release\Electronic_cash_machine.Form1.resources
+C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\obj\Release\Electronic_cash_machine.Properties.Resources.resources
+C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\obj\Release\Electronic cash machine.csproj.GenerateResource.cache
+C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\obj\Release\Electronic cash machine.csproj.CoreCompileInputs.cache
+C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\obj\Release\Electronic cash machine.exe
+C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\obj\Release\Electronic cash machine.pdb
+C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\bin\Release\Electronic cash machine.exe.manifest
+C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\bin\Release\Electronic cash machine.application
+C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\obj\Release\Electronic cash machine.exe.manifest
+C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\obj\Release\Electronic cash machine.application

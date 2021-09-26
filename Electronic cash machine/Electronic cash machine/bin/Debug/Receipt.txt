@@ -1,0 +1,40 @@
+Mr.orangutan
+21/09/2021 2:14:45 pm
+ balance - 100000 
+ withdrawn amout - 1000 
+new balance - 99000
+Mr.shihab
+21/09/2021 2:16:21 pm
+ balance - 120000 
+ withdrawn amout - 1000 
+new balance - 119000
+Mr.shihab
+21/09/2021 2:25:15 pm
+ balance - 120000 
+ withdrawn amout - 10000 
+new balance - 110000
+Mr.lobster
+21/09/2021 2:25:28 pm
+ balance - 110000 
+ withdrawn amout - 12300 
+new balance - 97700
+Mr.shihab
+22/09/2021 8:13:22 am
+ balance - 120000 
+ withdrawn amout - 10000 
+new balance - 110000
+Mr.shihab
+22/09/2021 9:12:17 am
+ balance - 120000 
+ withdrawn amout - 10000 
+new balance - 110000
+Mr.shihab
+22/09/2021 7:10:01 pm
+ balance - 119000 
+ withdrawn amout - 10000 
+new balance - 109000
+Mr.shihab
+22/09/2021 7:11:45 pm
+ balance - 120000 
+ withdrawn amout - 1000 
+new balance - 119000
