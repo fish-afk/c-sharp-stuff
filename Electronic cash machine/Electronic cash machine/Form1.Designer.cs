@@ -282,6 +282,7 @@ namespace Electronic_cash_machine
             this.TextBox1.Name = "TextBox1";
             this.TextBox1.Size = new System.Drawing.Size(199, 20);
             this.TextBox1.TabIndex = 20;
+            this.TextBox1.UseSystemPasswordChar = true;
             this.TextBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox1_KeyPress);
             // 
             // Panel1
@@ -359,6 +360,7 @@ namespace Electronic_cash_machine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(819, 533);
             this.Controls.Add(this.button19);
             this.Controls.Add(this.checkBox1);

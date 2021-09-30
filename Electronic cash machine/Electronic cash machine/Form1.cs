@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
-
+using System.Runtime.InteropServices;
 namespace Electronic_cash_machine
 {
     //Make sure the CWD has read/write access...
@@ -17,15 +17,14 @@ namespace Electronic_cash_machine
         string pin;
         int dark_mode_count = 1;
         StreamWriter error_file;
-        StreamWriter receipt_file;
+        StreamWriter receipt_file;  
 
         public static List<string> names_of_users = new List<string>() { null, null, null, null, "shihab", "lobster",
             "orangutan", "i junior", "poly", "mars" };
 
-        users user1;
-        users user2;
-        users user3;
-        users user4;
+        users[] users_list = new users[5];
+   
+
 
         public Form1()
         {
@@ -109,6 +108,8 @@ namespace Electronic_cash_machine
 
         private void Form1_Load(object sender, EventArgs e)
         {
+         
+
             this.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2,
                           (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2);
 
@@ -116,24 +117,31 @@ namespace Electronic_cash_machine
             Button18.Enabled = false;
             error_file = new StreamWriter($"{Convert.ToString(Directory.GetCurrentDirectory())}/error_log.txt", true);
             receipt_file = new StreamWriter($"{Convert.ToString(Directory.GetCurrentDirectory())}/Receipt.txt", true);
+            TextBox1.UseSystemPasswordChar = true;
 
-            user1 = new users(120000, "123A");
+            
+
+           
+
+            users_list[0] = new users(120000, "123A");
 
 
-            user2 = new users(110000, "453C");
+            users_list[1] = new users(110000, "453C");
 
 
-            user3 = new users(100000, "423A");
+            users_list[2] = new users(100000, "423A");
 
 
-            user4 = new users(90000, "123C");
+            users_list[3] = new users(100000, "423A");
 
-            user1.set_name();
-            user2.set_name();
-            user3.set_name();
-            user4.set_name();
+            users_list[0].set_name();
+            users_list[1].set_name();
+            users_list[2].set_name();
+            users_list[3].set_name();
 
-            Label1.Text += $"\n\fCurrent number of users: {users.num_of_users()}";
+
+
+            //Label1.Text += $"\n\fCurrent number of users: {users.num_of_users()}";
             Application.ApplicationExit += new EventHandler(this.OnApplicationExit);
 
 
@@ -155,29 +163,30 @@ namespace Electronic_cash_machine
             if (pin == "123A")
             {
                 allowed = true;
-                balance = user1.get_current_balance();
-                Label1.Text = $"Mr.{user1.get_user_name()}\nBal= $" + Convert.ToString(balance);
+                balance = users_list[0].get_current_balance();
+                Label1.Text = $"Mr.{users_list[0].get_user_name()}\nBal= $" + Convert.ToString(balance);
+                
             }
 
             else if (pin == "453C")
             {
                 allowed = true;
-                balance = user2.get_current_balance();
-                Label1.Text = $"Mr.{user2.get_user_name()}\nBal= $" + Convert.ToString(balance);
+                balance = users_list[1].get_current_balance();
+                Label1.Text = $"Mr.{users_list[1].get_user_name()}\nBal= $" + Convert.ToString(balance);
             }
 
             else if (pin == "423A")
             {
                 allowed = true;
-                balance = user3.get_current_balance();
-                Label1.Text = $"Mr.{user3.get_user_name()}\nBal= $" + Convert.ToString(balance);
+                balance = users_list[2].get_current_balance();
+                Label1.Text = $"Mr.{users_list[2].get_user_name()}\nBal= $" + Convert.ToString(balance);
             }
 
             else if (pin == "123C")
             {
                 allowed = true;
-                balance = user4.get_current_balance();
-                Label1.Text = $"Mr.{user4.get_user_name()}\nBal= $" + Convert.ToString(balance);
+                balance = users_list[3].get_current_balance();
+                Label1.Text = $"Mr.{users_list[3].get_user_name()}\nBal= $" + Convert.ToString(balance);
             }
             else
             {
@@ -199,20 +208,24 @@ namespace Electronic_cash_machine
             {
 
                 allowed = true;
+                TextBox1.UseSystemPasswordChar = false;
             }
 
             else if (pin == "453C")
             {
                 allowed = true;
+                TextBox1.UseSystemPasswordChar = false;
             }
             else if (pin == "423A")
             {
                 allowed = true;
+                TextBox1.UseSystemPasswordChar = false;
             }
 
             else if (pin == "123C")
             {
                 allowed = true;
+                TextBox1.UseSystemPasswordChar = false;
             }
             else
             {
@@ -251,20 +264,24 @@ namespace Electronic_cash_machine
             {
 
                 allowed = true;
+                TextBox1.UseSystemPasswordChar = false;
             }
 
             else if (pin == "453C")
             {
                 allowed = true;
+                TextBox1.UseSystemPasswordChar = false;
             }
             else if (pin == "423A")
             {
                 allowed = true;
+                TextBox1.UseSystemPasswordChar = false;
             }
 
             else if (pin == "123C")
             {
                 allowed = true;
+                TextBox1.UseSystemPasswordChar = false;
             }
             else
             {
@@ -285,7 +302,7 @@ namespace Electronic_cash_machine
             }
             else
             {
-                MessageBox.Show("Either you did not enter your pin\n or your pin was incorrect..");
+                MessageBox.Show("Either you did not enter your pin\n or your pin was incorrect..","Warning", MessageBoxButtons.OK);
             }
         }
 
@@ -295,10 +312,10 @@ namespace Electronic_cash_machine
             try
             {
                 double amount = Convert.ToDouble(TextBox1.Text);
-                double current_balance_1 = Convert.ToDouble(user1.get_current_balance());
-                double current_balance_2 = Convert.ToDouble(user2.get_current_balance());
-                double current_balance_3 = Convert.ToDouble(user3.get_current_balance());
-                double current_balance_4 = Convert.ToDouble(user4.get_current_balance());
+                double current_balance_1 = Convert.ToDouble(users_list[0].get_current_balance());
+                double current_balance_2 = Convert.ToDouble(users_list[1].get_current_balance());
+                double current_balance_3 = Convert.ToDouble(users_list[2].get_current_balance());
+                double current_balance_4 = Convert.ToDouble(users_list[3].get_current_balance());
 
                 if (withdraw_with_reciept == false)
                 {
@@ -309,9 +326,9 @@ namespace Electronic_cash_machine
                             if (amount <= current_balance_1)
                             {
 
-                                user1.set_new_balance(amount);
+                                users_list[0].set_new_balance(amount);
                                 //Button18.Enabled = false;
-                                Label1.Text = $"Mr.{user1.get_user_name()} \n withdrew ${amount} succesfully";
+                                Label1.Text = $"Mr.{users_list[0].get_user_name()} \n withdrew ${amount} succesfully";
 
                             }
                             else if (amount > current_balance_1)
@@ -325,8 +342,8 @@ namespace Electronic_cash_machine
                             if (amount <= current_balance_2)
                             {
 
-                                user1.set_new_balance(amount);
-                                Label1.Text = $"Mr.{user2.get_user_name()} \n withdrew ${amount} succesfully";
+                                users_list[0].set_new_balance(amount);
+                                Label1.Text = $"Mr.{users_list[1].get_user_name()} \n withdrew ${amount} succesfully";
                                 //Button18.Enabled = false;
                             }
                             else if (amount > current_balance_2)
@@ -341,8 +358,8 @@ namespace Electronic_cash_machine
                             if (amount <= current_balance_3)
                             {
 
-                                user1.set_new_balance(amount);
-                                Label1.Text = $"Mr.{user3.get_user_name()} \n withdrew ${amount} succesfully";
+                                users_list[0].set_new_balance(amount);
+                                Label1.Text = $"Mr.{users_list[2].get_user_name()} \n withdrew ${amount} succesfully";
                                 //Button18.Enabled = false;
                             }
                             else if (amount > current_balance_3)
@@ -356,8 +373,8 @@ namespace Electronic_cash_machine
                             if (amount <= current_balance_4)
                             {
 
-                                user1.set_new_balance(amount);
-                                Label1.Text = $"Mr.{user4.get_user_name()} \n withdrew ${amount} succesfully";
+                                users_list[0].set_new_balance(amount);
+                                Label1.Text = $"Mr.{users_list[3].get_user_name()} \n withdrew ${amount} succesfully";
                                 //Button18.Enabled = false;
                             }
                             else if (amount > current_balance_4)
@@ -383,10 +400,10 @@ namespace Electronic_cash_machine
                             if (amount <= current_balance_1)
                             {
 
-                                user1.set_new_balance(amount);
+                                users_list[0].set_new_balance(amount);
                                 // Button18.Enabled = false;
-                                Label1.Text = $"Mr.{user1.get_user_name()}\n{DateTime.Now}\n balance - {current_balance_1} \n withdrawn amout - {amount} \n";
-                                current_balance_1 = user1.get_current_balance();
+                                Label1.Text = $"Mr.{users_list[0].get_user_name()}\n{DateTime.Now}\n balance - {current_balance_1} \n withdrawn amout - {amount} \n";
+                                current_balance_1 = users_list[0].get_current_balance();
                                 Label1.Text += $"new balance - {current_balance_1}";
                                 receipt_file.WriteLine(Label1.Text);
 
@@ -404,10 +421,10 @@ namespace Electronic_cash_machine
                             if (amount <= current_balance_2)
                             {
 
-                                user2.set_new_balance(amount);
+                                users_list[1].set_new_balance(amount);
                                 // Button18.Enabled = false;
-                                Label1.Text = $"Mr.{user2.get_user_name()}\n{DateTime.Now}\n balance - {current_balance_2} \n withdrawn amout - {amount} \n";
-                                current_balance_2 = user2.get_current_balance();
+                                Label1.Text = $"Mr.{users_list[1].get_user_name()}\n{DateTime.Now}\n balance - {current_balance_2} \n withdrawn amout - {amount} \n";
+                                current_balance_2 = users_list[1].get_current_balance();
                                 Label1.Text += $"new balance - {current_balance_2}";
                                 receipt_file.WriteLine(Label1.Text);
 
@@ -424,10 +441,10 @@ namespace Electronic_cash_machine
                             if (amount <= current_balance_3)
                             {
 
-                                user3.set_new_balance(amount);
+                                users_list[2].set_new_balance(amount);
                                 //Button18.Enabled = false;
-                                Label1.Text = $"Mr.{user3.get_user_name()}\n{DateTime.Now}\n balance - {current_balance_3} \n withdrawn amout - {amount} \n";
-                                current_balance_3 = user3.get_current_balance();
+                                Label1.Text = $"Mr.{users_list[2].get_user_name()}\n{DateTime.Now}\n balance - {current_balance_3} \n withdrawn amout - {amount} \n";
+                                current_balance_3 = users_list[2].get_current_balance();
                                 Label1.Text += $"new balance - {current_balance_3}";
                                 receipt_file.WriteLine(Label1.Text);
 
@@ -443,10 +460,10 @@ namespace Electronic_cash_machine
                             if (amount <= current_balance_4)
                             {
 
-                                user4.set_new_balance(amount);
+                                users_list[3].set_new_balance(amount);
                                 //Button18.Enabled = false;
-                                Label1.Text = $"Mr.{user4.get_user_name()}\n{DateTime.Now}\n balance - {current_balance_4} \n withdrawn amout - {amount} \n";
-                                current_balance_4 = user4.get_current_balance();
+                                Label1.Text = $"Mr.{users_list[3].get_user_name()}\n{DateTime.Now}\n balance - {current_balance_4} \n withdrawn amout - {amount} \n";
+                                current_balance_4 = users_list[3].get_current_balance();
                                 Label1.Text += $"new balance - {current_balance_4}";
                                 receipt_file.WriteLine(Label1.Text);
 
@@ -486,6 +503,9 @@ namespace Electronic_cash_machine
             Button15.Enabled = false;
             Button12.Enabled = true;
             Button10.Enabled = true;
+            TextBox1.Text = "";
+            userinput = "";
+            TextBox1.UseSystemPasswordChar = true;
         }
 
         private void button17_MouseDown(object sender, MouseEventArgs e)

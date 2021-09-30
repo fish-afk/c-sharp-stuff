@@ -91,6 +91,7 @@ namespace Electronic_cash_machine
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "loading_form";
             this.Text = "loading_form";
             this.Load += new System.EventHandler(this.loading_form_Load);

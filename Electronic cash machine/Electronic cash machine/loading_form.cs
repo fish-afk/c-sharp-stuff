@@ -29,14 +29,14 @@ namespace Electronic_cash_machine
                 
                 loop += 1;
                 label2.Text = info[loop];
-                System.Threading.Thread.Sleep(200);
+                System.Threading.Thread.Sleep(300);
             }
 
            
 
             if (panel2.Width >= panel1.Width)
             {
-                System.Threading.Thread.Sleep(1000);
+                
                 timer1.Stop();
                 Form1 frm = new Form1();
                 frm.Show();
