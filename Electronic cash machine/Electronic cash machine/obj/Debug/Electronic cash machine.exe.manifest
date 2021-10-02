@@ -43,17 +43,35 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Electronic cash machine.exe" size="94696">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Electronic cash machine.exe" size="131048">
       <assemblyIdentity name="Electronic cash machine" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>NFZSZjP2W3RH8ZEKXsN1KAk1p42r0GKAsXKFF54xaY0=</dsig:DigestValue>
+        <dsig:DigestValue>qFEHTfJ9ku2hNmDMtVzpG828lQ0Mm2T456FavldWhso=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
+  <file name="Atm_Users.mdf" size="8388608" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>wZ90MiLZPnSkDyRXpr9MmmEiDPdo7YlMFO5fqLYEqv0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Atm_Users_log.ldf" size="8388608" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>aB+kBtpBsFs53JQ6n0Aqv0eeTd5tCI4a+zyi7q3i9Hk=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="box_parcel_icon_192643.ico" size="67646">
     <hash>
       <dsig:Transforms>
@@ -63,13 +81,13 @@
       <dsig:DigestValue>inOSH/Zwia4nKlHhy4PWPzGyXDshDspEsL/INkdvZkk=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Electronic cash machine.exe.config" size="189">
+  <file name="Electronic cash machine.exe.config" size="568">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>R+Wg8QGvQVHX8T0ta/qbhH1bXkqY0fRnS3wBV3J0bN8=</dsig:DigestValue>
+      <dsig:DigestValue>7m6Jq5I+Vaf/i4r4P07q1sZMgbIuel2+iP1NiO92/pI=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

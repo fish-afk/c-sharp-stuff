@@ -4,22 +4,24 @@ using System.Threading;
 
 namespace Electronic_cash_machine
 {
-    class users: Form1
+    public class users: Form1
     {
         double balance;
-        string pin;
+        private string _pin;
         string name;
         static int count = 0;
-        
-        public users(double userbal, string pin_of_user)
+
+        public users(double userbal, string pin_of_user, string name)
         {
             this.balance = userbal;
-            this.pin = pin_of_user;
-            count+=1;
-            
-        }
+            this._pin = pin_of_user;
+            this.name = name;
+            count += 1;
 
-        public double get_current_balance()
+        }
+        public users()
+        {}
+        public virtual double get_current_balance()
         {
             Console.WriteLine("$" + balance);
             return this.balance;
@@ -35,17 +37,29 @@ namespace Electronic_cash_machine
         {
             this.balance = this.balance - withdrawed_amount;
         }
-
-        public void set_name()
-        {
-            this.name = names_of_users[count];
-            names_of_users.Remove(names_of_users[count]);
-        }
-
         public string get_user_name()
         {
             Console.WriteLine(this.name);
             return this.name;
+        }
+
+        public virtual string get_user_pin()
+        {
+            return this._pin;
+        }
+        public virtual void set_user_pin(string pin)
+        {
+             this._pin = pin;
+        }
+
+        public virtual void set_user_bal(double bal)
+        {
+            this.balance = bal;
+        }
+
+        public virtual void set_user_name(string name)
+        {
+            this.name = name;
         }
     }
 }

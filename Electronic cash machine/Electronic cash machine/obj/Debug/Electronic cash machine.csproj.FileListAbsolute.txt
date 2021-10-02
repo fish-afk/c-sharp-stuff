@@ -23,3 +23,6 @@ C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic c
 C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\obj\Debug\Electronic cash machine.application
 C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\obj\Debug\Electronic_cash_machine.loading_form.resources
 C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\obj\Debug\Electronic cash machine.csproj.AssemblyReference.cache
+C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\bin\Debug\Atm_Users.mdf
+C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\bin\Debug\Atm_Users_log.ldf
+C:\Users\SIHAAB\Desktop\Visual studio stuff\Electronic cash machine\Electronic cash machine\obj\Debug\Electronic_cash_machine.Account.resources

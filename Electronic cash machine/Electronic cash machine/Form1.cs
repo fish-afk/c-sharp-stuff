@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Threading.Tasks;
+using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using Microsoft.VisualBasic;
+
 namespace Electronic_cash_machine
 {
     //Make sure the CWD has read/write access...
@@ -17,14 +21,10 @@ namespace Electronic_cash_machine
         string pin;
         int dark_mode_count = 1;
         StreamWriter error_file;
-        StreamWriter receipt_file;  
+        StreamWriter receipt_file;
+        bool on_confirm_part = false;
 
-        public static List<string> names_of_users = new List<string>() { null, null, null, null, "shihab", "lobster",
-            "orangutan", "i junior", "poly", "mars" };
-
-        users[] users_list = new users[5];
-   
-
+        public static List<users> users_list = new List<users>(); //polymorphic list
 
         public Form1()
         {
@@ -108,8 +108,9 @@ namespace Electronic_cash_machine
 
         private void Form1_Load(object sender, EventArgs e)
         {
-         
+            users.Text = "";
 
+            on_confirm_part = false;
             this.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2,
                           (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2);
 
@@ -119,27 +120,16 @@ namespace Electronic_cash_machine
             receipt_file = new StreamWriter($"{Convert.ToString(Directory.GetCurrentDirectory())}/Receipt.txt", true);
             TextBox1.UseSystemPasswordChar = true;
 
-            
-
-           
-
-            users_list[0] = new users(120000, "123A");
+            users_list.Add(new users(120000, "123A", "shihab"));
 
 
-            users_list[1] = new users(110000, "453C");
+            users_list.Add(new users(110000, "453C", "lobster"));
 
 
-            users_list[2] = new users(100000, "423A");
+            users_list.Add(new users(100000, "423A", "orangutan"));
 
 
-            users_list[3] = new users(100000, "423A");
-
-            users_list[0].set_name();
-            users_list[1].set_name();
-            users_list[2].set_name();
-            users_list[3].set_name();
-
-
+            users_list.Add(new users(90000, "123C", "i junior"));
 
             //Label1.Text += $"\n\fCurrent number of users: {users.num_of_users()}";
             Application.ApplicationExit += new EventHandler(this.OnApplicationExit);
@@ -152,6 +142,7 @@ namespace Electronic_cash_machine
             TextBox1.Text = "";
             userinput = "";
             MessageBox.Show("please use the keypad only", "warning");
+
         }
 
         private void Button13_Click(object sender, EventArgs e)
@@ -159,39 +150,15 @@ namespace Electronic_cash_machine
             pin = TextBox1.Text;
             double balance;
             Label2.Text = "";
+            linkLabel1.Text = "";
 
-            if (pin == "123A")
+            for (int i = 0; i < users_list.Count - 1; i++)
             {
-                allowed = true;
-                balance = users_list[0].get_current_balance();
-                Label1.Text = $"Mr.{users_list[0].get_user_name()}\nBal= $" + Convert.ToString(balance);
-                
-            }
-
-            else if (pin == "453C")
-            {
-                allowed = true;
-                balance = users_list[1].get_current_balance();
-                Label1.Text = $"Mr.{users_list[1].get_user_name()}\nBal= $" + Convert.ToString(balance);
-            }
-
-            else if (pin == "423A")
-            {
-                allowed = true;
-                balance = users_list[2].get_current_balance();
-                Label1.Text = $"Mr.{users_list[2].get_user_name()}\nBal= $" + Convert.ToString(balance);
-            }
-
-            else if (pin == "123C")
-            {
-                allowed = true;
-                balance = users_list[3].get_current_balance();
-                Label1.Text = $"Mr.{users_list[3].get_user_name()}\nBal= $" + Convert.ToString(balance);
-            }
-            else
-            {
-                allowed = false;
-                Label1.Text = "pin does not exist";
+                if (pin == users_list[i].get_user_pin())
+                {
+                    balance = users_list[i].get_current_balance();
+                    Label1.Text = $"Mr.{users_list[i].get_user_name()}\nBal= $" + Convert.ToString(balance);
+                }
             }
 
 
@@ -203,36 +170,21 @@ namespace Electronic_cash_machine
             withdraw_with_reciept = false;
             TextBox1.Text = "";
             userinput = "";
+            linkLabel1.Text = "";
+            allowed = false;
 
-            if (pin == "123A")
+            for(int i = 0; i < users_list.Count - 1; i++)
             {
-
-                allowed = true;
-                TextBox1.UseSystemPasswordChar = false;
+                if(pin == users_list[i].get_user_pin())
+                {
+                    allowed = true;
+                    TextBox1.UseSystemPasswordChar = false;
+                    on_confirm_part = true;
+                }
+                
             }
 
-            else if (pin == "453C")
-            {
-                allowed = true;
-                TextBox1.UseSystemPasswordChar = false;
-            }
-            else if (pin == "423A")
-            {
-                allowed = true;
-                TextBox1.UseSystemPasswordChar = false;
-            }
-
-            else if (pin == "123C")
-            {
-                allowed = true;
-                TextBox1.UseSystemPasswordChar = false;
-            }
-            else
-            {
-                allowed = false;
-            }
-
-            if (userinput != null && allowed == true)
+            if (allowed == true)
             {
                 Button13.Enabled = false;
                 Button14.Enabled = false;
@@ -243,6 +195,7 @@ namespace Electronic_cash_machine
                 Button10.Enabled = false;
                 Label1.Text = "Enter the amount you want to withdraw\n in the text area using the keypad";
                 Label2.Text = "Press confirm or deny to go back to\n main screen and cancel withdrawal..";
+                
             }
             else
             {
@@ -259,36 +212,20 @@ namespace Electronic_cash_machine
             withdraw_with_reciept = true;
             TextBox1.Text = "";
             userinput = "";
+            allowed = false;
+            
 
-            if (pin == "123A")
+            for(int i = 0; i < users_list.Count - 1; i++)
             {
-
-                allowed = true;
-                TextBox1.UseSystemPasswordChar = false;
+                if (pin == users_list[i].get_user_pin())
+                {
+                    allowed = true;
+                    TextBox1.UseSystemPasswordChar = false;
+                    on_confirm_part = true;
+                }
             }
 
-            else if (pin == "453C")
-            {
-                allowed = true;
-                TextBox1.UseSystemPasswordChar = false;
-            }
-            else if (pin == "423A")
-            {
-                allowed = true;
-                TextBox1.UseSystemPasswordChar = false;
-            }
-
-            else if (pin == "123C")
-            {
-                allowed = true;
-                TextBox1.UseSystemPasswordChar = false;
-            }
-            else
-            {
-                allowed = false;
-            }
-
-            if (userinput != null && allowed == true)
+            if (allowed == true)
             {
                 Button13.Enabled = false;
                 Button14.Enabled = false;
@@ -312,98 +249,49 @@ namespace Electronic_cash_machine
             try
             {
                 double amount = Convert.ToDouble(TextBox1.Text);
-                double current_balance_1 = Convert.ToDouble(users_list[0].get_current_balance());
-                double current_balance_2 = Convert.ToDouble(users_list[1].get_current_balance());
-                double current_balance_3 = Convert.ToDouble(users_list[2].get_current_balance());
-                double current_balance_4 = Convert.ToDouble(users_list[3].get_current_balance());
+                
+                
 
                 if (withdraw_with_reciept == false)
                 {
-                    switch (pin)
+                    for (int i = 0; i < users_list.Count - 1; i++)
                     {
-                        case "123A":
-
+                        if (pin == users_list[i].get_user_pin())
+                        {
+                            double current_balance_1 = Convert.ToDouble(users_list[i].get_current_balance());
                             if (amount <= current_balance_1)
                             {
 
-                                users_list[0].set_new_balance(amount);
+                                users_list[i].set_new_balance(amount);
                                 //Button18.Enabled = false;
-                                Label1.Text = $"Mr.{users_list[0].get_user_name()} \n withdrew ${amount} succesfully";
+                                Label1.Text = $"Mr.{users_list[i].get_user_name()} \n withdrew ${amount} succesfully";
 
                             }
                             else if (amount > current_balance_1)
                             {
                                 Label1.Text = "You do not have as much funds as mentioned.";
                             }
-                            break;
 
-                        case "453C":
-
-                            if (amount <= current_balance_2)
-                            {
-
-                                users_list[0].set_new_balance(amount);
-                                Label1.Text = $"Mr.{users_list[1].get_user_name()} \n withdrew ${amount} succesfully";
-                                //Button18.Enabled = false;
-                            }
-                            else if (amount > current_balance_2)
-                            {
-                                Label1.Text = "You do not have as much funds as mentioned.";
-                            }
-
-                            break;
-
-                        case "423A":
-
-                            if (amount <= current_balance_3)
-                            {
-
-                                users_list[0].set_new_balance(amount);
-                                Label1.Text = $"Mr.{users_list[2].get_user_name()} \n withdrew ${amount} succesfully";
-                                //Button18.Enabled = false;
-                            }
-                            else if (amount > current_balance_3)
-                            {
-                                Label1.Text = "You do not have as much funds as mentioned.";
-                            }
-                            break;
-
-                        case "123C":
-
-                            if (amount <= current_balance_4)
-                            {
-
-                                users_list[0].set_new_balance(amount);
-                                Label1.Text = $"Mr.{users_list[3].get_user_name()} \n withdrew ${amount} succesfully";
-                                //Button18.Enabled = false;
-                            }
-                            else if (amount > current_balance_4)
-                            {
-                                Label1.Text = "You do not have as much funds as mentioned.";
-                            }
-                            break;
-
-                        default:
-
-                            Label1.Text = "Pin does not exist";
-
-                            break;
+                            on_confirm_part = true;
+                            
+                        }
 
                     }
                 }
                 else if (withdraw_with_reciept == true)
                 {
-                    switch (pin)
+                    for(int c = 0; c < users_list.Count - 1; c++)
                     {
-                        case "123A":
-
+                        if(pin == users_list[c].get_user_pin())
+                        {
+                            double current_balance_1 = Convert.ToDouble(users_list[c].get_current_balance());
                             if (amount <= current_balance_1)
                             {
 
-                                users_list[0].set_new_balance(amount);
+                                users_list[c].set_new_balance(amount);
                                 // Button18.Enabled = false;
-                                Label1.Text = $"Mr.{users_list[0].get_user_name()}\n{DateTime.Now}\n balance - {current_balance_1} \n withdrawn amout - {amount} \n";
-                                current_balance_1 = users_list[0].get_current_balance();
+                                Label1.Text = $"Mr.{users_list[c].get_user_name()}\n{DateTime.Now}\n balance - {current_balance_1} \n withdrawn amount - {amount} \n";
+                                current_balance_1 = users_list[c].get_current_balance();
                                 Label1.Text += $"new balance - {current_balance_1}";
                                 receipt_file.WriteLine(Label1.Text);
 
@@ -413,73 +301,7 @@ namespace Electronic_cash_machine
                             {
                                 Label1.Text = "You do not have as much funds as mentioned.";
                             }
-
-                            break;
-
-                        case "453C":
-
-                            if (amount <= current_balance_2)
-                            {
-
-                                users_list[1].set_new_balance(amount);
-                                // Button18.Enabled = false;
-                                Label1.Text = $"Mr.{users_list[1].get_user_name()}\n{DateTime.Now}\n balance - {current_balance_2} \n withdrawn amout - {amount} \n";
-                                current_balance_2 = users_list[1].get_current_balance();
-                                Label1.Text += $"new balance - {current_balance_2}";
-                                receipt_file.WriteLine(Label1.Text);
-
-                            }
-                            else if (amount > current_balance_2)
-                            {
-                                Label1.Text = "You do not have as much funds as mentioned.";
-                            }
-
-                            break;
-
-                        case "423A":
-
-                            if (amount <= current_balance_3)
-                            {
-
-                                users_list[2].set_new_balance(amount);
-                                //Button18.Enabled = false;
-                                Label1.Text = $"Mr.{users_list[2].get_user_name()}\n{DateTime.Now}\n balance - {current_balance_3} \n withdrawn amout - {amount} \n";
-                                current_balance_3 = users_list[2].get_current_balance();
-                                Label1.Text += $"new balance - {current_balance_3}";
-                                receipt_file.WriteLine(Label1.Text);
-
-                            }
-                            else if (amount > current_balance_3)
-                            {
-                                Label1.Text = "You do not have as much funds as mentioned.";
-                            }
-                            break;
-
-                        case "123C":
-
-                            if (amount <= current_balance_4)
-                            {
-
-                                users_list[3].set_new_balance(amount);
-                                //Button18.Enabled = false;
-                                Label1.Text = $"Mr.{users_list[3].get_user_name()}\n{DateTime.Now}\n balance - {current_balance_4} \n withdrawn amout - {amount} \n";
-                                current_balance_4 = users_list[3].get_current_balance();
-                                Label1.Text += $"new balance - {current_balance_4}";
-                                receipt_file.WriteLine(Label1.Text);
-
-                            }
-                            else if (amount > current_balance_4)
-                            {
-                                Label1.Text = "You do not have as much funds as mentioned.";
-                            }
-                            break;
-
-                        default:
-
-                            Label1.Text = "Pin does not exist";
-
-                            break;
-
+                        }
                     }
                 }
             }
@@ -494,7 +316,8 @@ namespace Electronic_cash_machine
         private void Button18_Click(object sender, EventArgs e)
         {
             Label1.Text = "Money Marketplace";
-            Label2.Text = "Enter your pin number to login";
+            Label2.Text = "Enter your pin number to login\n To create an account click";
+            linkLabel1.Text = "here";
 
             Button13.Enabled = true;
             Button14.Enabled = true;
@@ -506,6 +329,7 @@ namespace Electronic_cash_machine
             TextBox1.Text = "";
             userinput = "";
             TextBox1.UseSystemPasswordChar = true;
+            on_confirm_part = false;
         }
 
         private void button17_MouseDown(object sender, MouseEventArgs e)
@@ -567,8 +391,81 @@ namespace Electronic_cash_machine
         {
 
         }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            string key = Interaction.InputBox("This action requires higher privilages, \n Enter Secret key...", "prompt", "");
+
+            if(key == "ak123")
+            {
+                string cn_string = Properties.Settings.Default.Atm_UsersConnectionString;
+
+                users.BackColor = Color.Black;
+                users.ForeColor = Color.White;
+
+                //-< Database >
+
+                SqlConnection cn_connection = new SqlConnection(cn_string);
+
+                if (cn_connection.State != ConnectionState.Open) cn_connection.Open();
+
+                string sql_Text = "SELECT * FROM tbl_users";
+
+                DataTable tbl = new DataTable();
+
+                SqlDataAdapter adapter = new SqlDataAdapter(sql_Text, cn_connection);
+
+                adapter.Fill(tbl);
+
+                users.DisplayMember = "user_name";
+                users.DataSource = tbl;
+
+                cn_connection.Close();
+            }
+            else
+            {
+                MessageBox.Show("Wrong key!");
+                users.DataSource = null;
+            }
+            
+
+
+        }
+
+        private void Label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Account form = new Account();
+            form.Show();
+            this.Hide();
+            error_file.Close();
+            receipt_file.Close();
+        }
+
+        private void Form1_Leave(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (on_confirm_part == false && userinput.Length > 4 && Account.isPremium == false)
+            {
+                userinput = userinput.Remove(userinput.Length - 1);
+            }
+
+            if (on_confirm_part == false && userinput.Length > 6 && Account.isPremium == true)
+            {
+                userinput = userinput.Remove(userinput.Length - 1);
+            }
+
+        }
     }
 }
 
 
-// 500 lines-ish, code not documented...
+// 400 lines-ish, code not documented...

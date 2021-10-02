@@ -38,3 +38,48 @@ Mr.shihab
  balance - 120000 
  withdrawn amout - 1000 
 new balance - 119000
+Mr.shihab
+01/10/2021 12:23:58 pm
+ balance - 120000 
+ withdrawn amount - 1000 
+new balance - 119000
+Mr.shihab
+01/10/2021 12:24:06 pm
+ balance - 119000 
+ withdrawn amount - 1000 
+new balance - 118000
+Mr.shihab
+01/10/2021 12:24:07 pm
+ balance - 118000 
+ withdrawn amount - 1000 
+new balance - 117000
+Mr.shihab
+01/10/2021 12:24:07 pm
+ balance - 117000 
+ withdrawn amount - 1000 
+new balance - 116000
+Mr.shihab
+01/10/2021 12:24:07 pm
+ balance - 116000 
+ withdrawn amount - 1000 
+new balance - 115000
+Mr.shihab
+01/10/2021 12:24:14 pm
+ balance - 115000 
+ withdrawn amount - 1000 
+new balance - 114000
+Mr.shihab
+01/10/2021 12:24:15 pm
+ balance - 114000 
+ withdrawn amount - 1000 
+new balance - 113000
+Mr.i junior
+01/10/2021 3:33:16 pm
+ balance - 90000 
+ withdrawn amount - 1000 
+new balance - 89000
+Mr.shihab
+01/10/2021 3:33:16 pm
+ balance - 1234 
+ withdrawn amount - 1000 
+new balance - 234
